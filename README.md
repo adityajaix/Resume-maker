@@ -1,1 +1,2 @@
-🔗 [Try it live](https://adityajaix.github.io/resume-maker)
+🔗 [Try it live](https://adityajaix.github.io/Resume-maker/)
+
