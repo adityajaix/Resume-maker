@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume</title>
+    <style>
+        /* 
+         * ============================================================
+         * RESUME PRINTABLE TEMPLATE - CSS
+         * ============================================================
+         * 
+         * This CSS is designed specifically for A4 printing.
+         * The resume will look exactly the same on screen and in print.
+         * 
+         * Key principles:
+         * - Fixed A4 dimensions (210mm x 297mm)
+         * - Page breaks handled with CSS
+         * - No responsive design needed (fixed print layout)
+         * - What you see is what you get (WYSIWYG)
+         */
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #333;
+            background: #f0f0f0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* A4 Page container */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 10mm auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            page-break-after: always;
+            break-after: always;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                background: none;
+            }
+            
+            .page {
+                margin: 0;
+                padding: 15mm;
+                box-shadow: none;
+                width: 210mm;
+                min-height: 297mm;
+                page-break-after: always;
+                break-after: always;
+            }
+            
+            .page:last-child {
+                page-break-after: auto;
+                break-after: auto;
+            }
+            
+            /* Hide UI elements when printing */
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* Resume Header */
+        .resume-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15pt;
+            padding-bottom: 10pt;
+            border-bottom: 2px solid #2c3e50;
+            gap: 15pt;
+        }
+
+        .header-name {
+            /* flex: 1; */
+            text-align: center;
+        }
+
+        .resume-name {
+            font-size: 24pt;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5pt;
+            letter-spacing: 1px;
+        }
+
+        .resume-profession {
+            font-size: 14pt;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 8pt;
+        }
+
+        .header-info {
+            flex: 2;
+            /* text-align: center; */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3pt;
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .contact-columns {
+            display: flex;
+            justify-content: center;
+            gap: 20pt;
+        }
+
+        .contact-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2pt;
+        }
+
+        .contact-info span {
+            margin: 0;
+        }
+
+        /* Photo Placeholder for Physical Photo (Passport Size) */
+        .photo-placeholder-section {
+            flex-shrink: 0;
+            margin-left: 20pt;
+        }
+
+        .photo-box {
+            width: 35mm;
+            height: 45mm;
+            border: 2px dashed #bdc3c7;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .photo-text {
+            font-size: 9pt;
+            color: #7f8c8d;
+            text-align: center;
+            line-height: 1.2;
+            pointer-events: none;
+        }
+
+        /* Hover effect for visual guidance (not visible in print) */
+        .photo-box:hover {
+            border-color: #3498db;
+            background: #eaf2f8;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 12pt;
+        }
+
+        .section-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8pt;
+            padding-bottom: 3pt;
+            border-bottom: 1px solid #3498db;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Experience & Education Entries */
+        .entry {
+            margin-bottom: 10pt;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3pt;
+        }
+
+        .entry-title {
+            font-size: 12pt;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .entry-subtitle {
+            font-size: 11pt;
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .entry-date {
+            font-size: 10pt;
+            color: #666;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .entry-company {
+            font-size: 11pt;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 3pt;
+        }
+
+        .entry-description {
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5pt;
+        }
+
+        .skill-tag {
+            background: #f8f9fa;
+            padding: 3pt 8pt;
+            border-radius: 3px;
+            font-size: 10pt;
+            color: #444;
+            border-left: 3px solid #3498db;
+        }
+
+        /* Additional Info */
+        .info-item {
+            margin-bottom: 5pt;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #2c3e50;
+            display: inline;
+        }
+
+        .info-text {
+            color: #444;
+        }
+
+        /* UI Elements (hidden in print) */
+        .ui-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+        }
+
+        /* Loading and error states */
+        .loading-message {
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+            color: #dc3545;
+        }
+
+        /* Prevent orphans and widows */
+        p, h1, h2, h3, h4, h5, h6 {
+            orphans: 2;
+            widows: 2;
+        }
+
+        /* Keep headings with following content */
+        .section-title {
+            page-break-after: avoid;
+            break-after: avoid;
+        }
+
+        .entry {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+    <!-- UI Controls (hidden when printing) -->
+    <div class="ui-controls no-print">
+        <button class="btn btn-primary" onclick="window.print()">📄 Print Resume</button>
+        <button class="btn btn-secondary" onclick="window.location.href='index.html'">✏️ Edit Resume</button>
+    </div>
+
+    <!-- Resume Content -->
+    <div id="resumeContent">
+        <div class="loading-message">Loading resume data...</div>
+    </div>
+
+    <script>
+        // Load resume data and populate the template
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load data from localStorage
+            const resumeData = loadResumeData();
+            
+            if (!resumeData) {
+                document.getElementById('resumeContent').innerHTML = `
+                    <div class="error-message">
+                        <p>No resume data found!</p>
+                        <p>Please fill out the form first.</p>
+                        <button class="btn btn-primary" onclick="window.location.href='index.html'" style="margin-top: 20px;">
+                            Go to Form
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Generate resume HTML
+            const resumeHTML = generateResumeHTML(resumeData);
+            document.getElementById('resumeContent').innerHTML = resumeHTML;
+        });
+
+        function loadResumeData() {
+            try {
+                const resumeJSON = localStorage.getItem('resumeData');
+                if (resumeJSON) {
+                    return JSON.parse(resumeJSON);
+                }
+                return null;
+            } catch (error) {
+                console.error('Error loading resume data:', error);
+                return null;
+            }
+        }
+
+        function generateResumeHTML(data) {
+            let html = '';
+            let currentPage = 1;
+            let content = '';
+            
+            // Start first page
+            content += '<div class="page">';
+            
+            // Header with 3 columns: Name | Personal Info | Photo
+            content += '<div class="resume-header">';
+            
+            // Column 1: Name
+            content += '<div class="header-name">';
+            content += `<h1 class="resume-name">${escapeHTML(data.personalInfo.fullName || '')}</h1>`;
+            if (data.personalInfo.profession) {
+                content += `<div class="resume-profession">${escapeHTML(data.personalInfo.profession)}</div>`;
+            }
+            content += '</div>';
+            
+            // Column 2: Personal Info (in columns)
+            content += '<div class="header-info">';
+            content += '<div class="contact-info">';
+            
+            // Left column of contact info
+            let leftColumn = [];
+            if (data.personalInfo.email) {
+                leftColumn.push(`<span>📧 ${escapeHTML(data.personalInfo.email)}</span>`);
+            }
+            if (data.personalInfo.phone) {
+                leftColumn.push(`<span>📱 ${escapeHTML(data.personalInfo.phone)}</span>`);
+            }
+            if (data.personalInfo.address) {
+                leftColumn.push(`<span>📍 ${escapeHTML(data.personalInfo.address)}</span>`);
+            }
+            
+            // Right column of contact info
+            let rightColumn = [];
+            if (data.personalInfo.linkedin) {
+                rightColumn.push(`<span>💼 ${escapeHTML(data.personalInfo.linkedin)}</span>`);
+            }
+            if (data.personalInfo.website) {
+                rightColumn.push(`<span>🌐 ${escapeHTML(data.personalInfo.website)}</span>`);
+            }
+            
+            // Display in two columns
+            if (leftColumn.length > 0 || rightColumn.length > 0) {
+                content += '<div class="contact-columns">';
+                if (leftColumn.length > 0) {
+                    content += `<div class="contact-column">${leftColumn.join('')}</div>`;
+                }
+                if (rightColumn.length > 0) {
+                    content += `<div class="contact-column">${rightColumn.join('')}</div>`;
+                }
+                content += '</div>';
+            }
+            
+            content += '</div>'; // End contact-info
+            content += '</div>'; // End header-info
+            
+            // Column 3: Photo placeholder
+            content += '<div class="photo-placeholder-section">';
+            content += '<div class="photo-box">';
+            content += '<span class="photo-text">Paste<br>Photo</span>';
+            content += '</div>';
+            content += '</div>';
+            
+            content += '</div>'; // End header
+            
+            // Professional Summary
+            if (data.summary) {
+                content += '<div class="section">';
+                content += '<h2 class="section-title">Professional Summary</h2>';
+                content += `<p class="summary-text">${escapeHTML(data.summary)}</p>`;
+                content += '</div>';
+            }
+            
+            // Work Experience
+            if (data.experience && data.experience.length > 0) {
+                content += '<div class="section">';
+                content += '<h2 class="section-title">Work Experience</h2>';
+                
+                data.experience.forEach(exp => {
+                    content += '<div class="entry">';
+                    content += '<div class="entry-header">';
+                    content += `<div class="entry-title">${escapeHTML(exp.jobTitle || '')}</div>`;
+                    
+                    let dateText = '';
+                    if (exp.startDate) {
+                        dateText += formatDate(exp.startDate);
+                    }
+                    if (exp.currentJob) {
+                        dateText += ' - Present';
+                    } else if (exp.endDate) {
+                        dateText += ' - ' + formatDate(exp.endDate);
+                    }
+                    
+                    content += `<div class="entry-date">${dateText}</div>`;
+                    content += '</div>';
+                    
+                    if (exp.company) {
+                        content += `<div class="entry-company">${escapeHTML(exp.company)}</div>`;
+                    }
+                    
+                    if (exp.description) {
+                        content += `<div class="entry-description">${escapeHTML(exp.description)}</div>`;
+                    }
+                    
+                    content += '</div>'; // End entry
+                });
+                
+                content += '</div>'; // End section
+            }
+            
+            // Education
+            if (data.education && data.education.length > 0) {
+                content += '<div class="section">';
+                content += '<h2 class="section-title">Education</h2>';
+                
+                data.education.forEach(edu => {
+                    content += '<div class="entry">';
+                    content += '<div class="entry-header">';
+                    content += `<div class="entry-subtitle">${escapeHTML(edu.degree || '')}</div>`;
+                    
+                    let dateText = '';
+                    if (edu.graduationDate) {
+                        dateText = formatDate(edu.graduationDate);
+                    }
+                    
+                    content += `<div class="entry-date">${dateText}</div>`;
+                    content += '</div>';
+                    
+                    content += `<div class="entry-company">${escapeHTML(edu.school || '')}</div>`;
+                    
+                    if (edu.fieldOfStudy) {
+                        content += `<div class="entry-description"><strong>Field of Study:</strong> ${escapeHTML(edu.fieldOfStudy)}</div>`;
+                    }
+                    
+                    if (edu.additionalInfo) {
+                        content += `<div class="entry-description">${escapeHTML(edu.additionalInfo)}</div>`;
+                    }
+                    
+                    content += '</div>'; // End entry
+                });
+                
+                content += '</div>'; // End section
+            }
+            
+            // Skills
+            if (data.skills) {
+                content += '<div class="section">';
+                content += '<h2 class="section-title">Skills</h2>';
+                content += '<div class="skills-list">';
+                
+                const skillsArray = data.skills.split(',').map(s => s.trim()).filter(s => s);
+                skillsArray.forEach(skill => {
+                    content += `<span class="skill-tag">${escapeHTML(skill)}</span>`;
+                });
+                
+                content += '</div>';
+                content += '</div>';
+            }
+            
+            // Additional Information
+            let hasAdditionalInfo = false;
+            let additionalHTML = '';
+            
+            if (data.languages) {
+                hasAdditionalInfo = true;
+                additionalHTML += '<div class="info-item"><span class="info-label">Languages: </span><span class="info-text">' + escapeHTML(data.languages) + '</span></div>';
+            }
+            
+            if (data.certifications) {
+                hasAdditionalInfo = true;
+                additionalHTML += '<div class="info-item"><span class="info-label">Certifications: </span><span class="info-text">' + escapeHTML(data.certifications) + '</span></div>';
+            }
+            
+            if (data.achievements) {
+                hasAdditionalInfo = true;
+                additionalHTML += '<div class="info-item"><span class="info-label">Achievements & Awards: </span><span class="info-text">' + escapeHTML(data.achievements) + '</span></div>';
+            }
+            
+            if (hasAdditionalInfo) {
+                content += '<div class="section">';
+                content += '<h2 class="section-title">Additional Information</h2>';
+                content += additionalHTML;
+                content += '</div>';
+            }
+            
+            content += '</div>'; // End page
+            
+            return content;
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            
+            // dateString is in format YYYY-MM
+            const parts = dateString.split('-');
+            if (parts.length === 2) {
+                const year = parts[0];
+                const month = parts[1];
+                const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+                                   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                return monthNames[parseInt(month) - 1] + ' ' + year;
+            }
+            
+            return dateString;
+        }
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

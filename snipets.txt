@@ -1,0 +1,30 @@
+<div class="form-row">
+                    <div class="form-group">
+                        <label for="photoUpload">Profile Photo</label>
+                        <!-- File input for uploading a photo -->
+                        <!-- accept="image/*" limits selection to image files only -->
+                        <input type="file" id="photoUpload" name="photo" accept="image/*">
+                        <!-- Helper text below the input -->
+                        <small class="input-hint">Upload a professional photo (JPG, PNG, or GIF). Max size: 2MB.</small>
+                    </div>
+                    
+                    <!-- Photo Preview Area -->
+
+<div class="form-group photo-preview-container">
+                        <label>Photo Preview</label>
+                        <div id="photoPreview" class="photo-preview">
+                            <!-- Default placeholder icon -->
+                            <div class="photo-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span>No photo selected</span>
+                            </div>
+                            <!-- Image will be displayed here when uploaded -->
+                            <img id="previewImage" src="" alt="Profile preview" style="display: none;">
+                        </div>
+                        <!-- Remove photo button (hidden by default) -->
+                        <button type="button" id="removePhotoBtn" class="remove-photo-btn" style="display: none;" onclick="removePhoto()">Remove Photo</button>
+                    </div>
+</div>

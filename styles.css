@@ -1,0 +1,1041 @@
+/* 
+ * ============================================================
+ * RESUME BUILDER - CSS FILE
+ * ============================================================
+ * 
+ * CSS (Cascading Style Sheets) is what makes HTML look good.
+ * If HTML is the skeleton of a building, CSS is the paint, 
+ * decoration, furniture, and overall interior design.
+ * 
+ * What this file does:
+ * - Controls colors, fonts, spacing, and layout
+ * - Makes the form look professional and resume-like
+ * - Ensures the form works on both desktop and mobile devices
+ * - Adds visual effects like shadows, gradients, and animations
+ * 
+ * Key CSS Concepts:
+ * - Selectors: Target HTML elements to style them
+ * - Properties: What aspect to change (color, size, etc.)
+ * - Values: The specific setting (red, 20px, etc.)
+ * - Rules: A complete styling instruction (selector + properties)
+ */
+
+/* ============================================================
+   RESET & BASE STYLES
+   ============================================================
+   
+   Before styling anything, we "reset" browser defaults.
+   Different browsers (Chrome, Firefox, Safari) have slightly
+   different default styles. This ensures consistency.
+*/
+
+* {
+    /* The asterisk (*) is a "universal selector" - it selects ALL elements */
+    margin: 0;
+    /* Removes default spacing outside elements */
+    
+    padding: 0;
+    /* Removes default spacing inside elements */
+    
+    box-sizing: border-box;
+    /* Makes width/height include padding and borders */
+    /* Without this, adding padding would make elements wider */
+}
+
+body {
+    /* Styles for the entire page background */
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Sets the default font. Lists multiple fonts as backups */
+    /* If 'Segoe UI' isn't available, tries 'Tahoma', then 'Geneva', etc. */
+    
+    line-height: 1.6;
+    /* Space between lines of text (1.6 times the font size) */
+    /* Makes text easier to read */
+    
+    color: #333;
+    /* Default text color (dark gray, easier on eyes than pure black) */
+    
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Creates a diagonal gradient background from purple to blue */
+    /* 135deg = angle, colors transition from #667eea to #764ba2 */
+    
+    min-height: 100vh;
+    /* Minimum height is 100% of the viewport (browser window) */
+    /* Ensures background covers entire screen */
+    
+    padding: 20px;
+    /* Space between page edge and content */
+}
+
+/* ============================================================
+   MAIN CONTAINER
+   ============================================================
+   
+   This is the white "card" that holds the entire form.
+   It's centered on the page with the purple/blue background showing around it.
+*/
+
+.resume-form-container {
+    /* The main wrapper that looks like a resume document */
+    
+    max-width: 900px;
+    /* Maximum width - won't get wider than this on large screens */
+    
+    margin: 0 auto;
+    /* Centers the container horizontally */
+    /* margin: top/bottom left/right; 0 = no top/bottom margin */
+    
+    background: white;
+    /* White background like a real piece of paper */
+    
+    border-radius: 8px;
+    /* Rounds the corners (8 pixels of rounding) */
+    
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    /* Creates a shadow effect to make it "float" above background */
+    /* 0 = horizontal offset, 10px = vertical offset, 40px = blur amount */
+    /* rgba(0,0,0,0.2) = black with 20% opacity */
+    
+    overflow: hidden;
+    /* Clips any content that tries to spill outside the rounded corners */
+}
+
+/* ============================================================
+   FORM HEADER
+   ============================================================
+   
+   The blue/purple section at the top with the title.
+   Uses a gradient to look modern and professional.
+*/
+
+.form-header {
+    /* The colored header bar at the top */
+    
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    /* Dark blue to lighter blue gradient */
+    
+    color: white;
+    /* White text on the dark background */
+    
+    padding: 40px 40px 30px;
+    /* Space inside: top 40px, sides 40px, bottom 30px */
+    
+    text-align: center;
+    /* Centers the text horizontally */
+    
+    border-bottom: 4px solid #e74c3c;
+    /* Red line at the bottom for visual separation */
+    /* Adds a pop of contrasting color */
+}
+
+.form-header h1 {
+    /* Styles specifically for the main title */
+    
+    font-size: 2.5rem;
+    /* Large text: 2.5 times the base font size */
+    /* rem = "root em" = relative to base font size */
+    
+    font-weight: 700;
+    /* Bold text (700 is bold, 400 is normal) */
+    
+    margin-bottom: 10px;
+    /* Space below the heading */
+    
+    letter-spacing: 1px;
+    /* Small space between each letter for elegance */
+    
+    text-transform: uppercase;
+    /* Makes all text CAPITAL LETTERS */
+}
+
+.form-header p {
+    /* Styles for the subtitle text */
+    
+    font-size: 1.1rem;
+    /* Slightly larger than base font */
+    
+    opacity: 0.9;
+    /* Slightly transparent (90% opaque) */
+    /* Makes it less prominent than the title */
+    
+    font-weight: 300;
+    /* Light/thin font weight for contrast with bold title */
+}
+
+/* ============================================================
+   FORM BODY
+   ============================================================
+   
+   The main content area where all the form fields are.
+*/
+
+.resume-form {
+    /* The actual form element */
+    
+    padding: 40px;
+    /* Space inside the form, around all the fields */
+}
+
+/* ============================================================
+   FORM SECTIONS
+   ============================================================
+   
+   Each major section (Personal Info, Experience, etc.) gets
+   consistent styling with a bottom border for separation.
+*/
+
+.form-section {
+    /* Container for each major section */
+    
+    margin-bottom: 35px;
+    /* Space between sections */
+    
+    padding-bottom: 25px;
+    /* Space at the bottom inside the section */
+    
+    border-bottom: 2px solid #ecf0f1;
+    /* Light gray line separating sections */
+    /* #ecf0f1 is a very light gray-blue */
+}
+
+.form-section:last-of-type {
+    /* Special rule for the LAST section */
+    
+    border-bottom: none;
+    /* No line after the last section */
+}
+
+.form-section h2 {
+    /* Section headings like "Personal Information" */
+    
+    font-size: 1.5rem;
+    /* Medium-large heading */
+    
+    color: #2c3e50;
+    /* Dark blue-gray color */
+    
+    margin-bottom: 20px;
+    /* Space below the heading */
+    
+    padding-bottom: 10px;
+    /* Space for the border to sit below */
+    
+    border-bottom: 3px solid #3498db;
+    /* Blue line under each section heading */
+    
+    display: inline-block;
+    /* Makes the border only as wide as the text, not full width */
+    
+    text-transform: uppercase;
+    /* ALL CAPS for section titles */
+    
+    letter-spacing: 1px;
+    /* Space between letters */
+}
+
+/* ============================================================
+   FORM LAYOUT (ROWS & COLUMNS)
+   ============================================================
+   
+   Uses Flexbox to create the two-column layout.
+   Flexbox is a modern CSS layout system that makes alignment easy.
+*/
+
+.form-row {
+    /* A row that can contain multiple form fields */
+    
+    display: flex;
+    /* Activates flexbox layout */
+    /* Child elements will be arranged in a row by default */
+    
+    gap: 20px;
+    /* Space between items in the flex container */
+    
+    margin-bottom: 15px;
+    /* Space below each row */
+    
+    flex-wrap: wrap;
+    /* Allows items to wrap to next line on small screens */
+}
+
+.form-group {
+    /* Wraps a label and its input together */
+    
+    flex: 1;
+    /* Makes all form groups in a row equal width */
+    /* They "flex" to share available space equally */
+    
+    min-width: 200px;
+    /* Won't get smaller than 200px wide */
+    
+    margin-bottom: 10px;
+    /* Space below each form group */
+}
+
+.form-group.full-width {
+    /* Special class for fields that should span entire row */
+    
+    flex-basis: 100%;
+    /* Takes up 100% of the row width */
+}
+
+/* ============================================================
+   LABELS
+   ============================================================
+   
+   The text that describes what each input field is for.
+*/
+
+.form-group label {
+    /* All labels inside form groups */
+    
+    display: block;
+    /* Makes label take full width (starts on new line) */
+    
+    font-weight: 600;
+    /* Semi-bold text */
+    
+    color: #555;
+    /* Medium gray color */
+    
+    margin-bottom: 6px;
+    /* Small space between label and input */
+    
+    font-size: 0.95rem;
+    /* Slightly smaller than base font */
+}
+
+/* ============================================================
+   INPUT FIELDS & TEXT AREAS
+   ============================================================
+   
+   The actual boxes where users type their information.
+*/
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="url"],
+.form-group input[type="month"],
+.form-group textarea {
+    /* This selector targets all these input types */
+    /* We style them all the same way for consistency */
+    
+    width: 100%;
+    /* Full width of their container */
+    
+    padding: 12px 15px;
+    /* Space inside: top/bottom 12px, left/right 15px */
+    
+    border: 2px solid #ddd;
+    /* Light gray border, 2 pixels thick */
+    
+    border-radius: 5px;
+    /* Slightly rounded corners */
+    
+    font-size: 1rem;
+    /* Standard font size */
+    
+    font-family: inherit;
+    /* Uses the same font as parent element */
+    
+    transition: all 0.3s ease;
+    /* Smooth animation when styles change (like on focus) */
+    /* 0.3s = 300 milliseconds, ease = gradual speed change */
+    
+    background-color: #fafafa;
+    /* Very light gray background (not pure white) */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    /* Styles when user clicks/tabs into a field */
+    
+    outline: none;
+    /* Removes default browser outline */
+    
+    border-color: #3498db;
+    /* Changes border to blue when focused */
+    
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    /* Subtle blue glow around the field */
+    
+    background-color: white;
+    /* Brighter background when editing */
+}
+
+.form-group textarea {
+    /* Extra styles for multi-line text areas */
+    
+    resize: vertical;
+    /* User can drag to resize height only (not width) */
+    
+    min-height: 80px;
+    /* Minimum height */
+}
+
+/* ============================================================
+   CHECKBOX STYLING
+   ============================================================
+   
+   Custom styling for the "I currently work here" checkbox.
+*/
+
+.checkbox-label {
+    /* Container for checkbox and its label text */
+    
+    display: flex;
+    /* Aligns checkbox and text in a row */
+    
+    align-items: center;
+    /* Vertically centers them */
+    
+    gap: 8px;
+    /* Space between checkbox and text */
+    
+    font-weight: normal;
+    /* Regular weight (not bold like other labels) */
+    
+    font-size: 0.9rem;
+    /* Slightly smaller text */
+    
+    margin-top: 8px;
+    /* Space above the checkbox */
+    
+    cursor: pointer;
+    /* Changes cursor to pointing hand on hover */
+}
+
+.checkbox-label input[type="checkbox"] {
+    /* The actual checkbox */
+    
+    width: 18px;
+    height: 18px;
+    /* Fixed size for consistency */
+    
+    accent-color: #3498db;
+    /* Blue color when checked (modern browsers) */
+}
+
+/* ============================================================
+   EXPERIENCE & EDUCATION ITEMS
+   ============================================================
+   
+   The boxed sections for each job or education entry.
+   They have a light background to stand out from the white page.
+*/
+
+.experience-item,
+.education-item {
+    /* Both types of entries get same styling */
+    
+    background: #f8f9fa;
+    /* Very light gray background */
+    
+    border: 1px solid #e9ecef;
+    /* Subtle border */
+    
+    border-radius: 6px;
+    /* Rounded corners */
+    
+    padding: 20px;
+    /* Space inside the box */
+    
+    margin-bottom: 15px;
+    /* Space between entries */
+    
+    position: relative;
+    /* Allows positioning of child elements if needed */
+}
+
+.section-header {
+    /* The top part of each entry with title and remove button */
+    
+    display: flex;
+    /* Arranges title and button in a row */
+    
+    justify-content: space-between;
+    /* Pushes title to left, button to right */
+    
+    align-items: center;
+    /* Vertically centers them */
+    
+    margin-bottom: 15px;
+    /* Space below the header */
+    
+    padding-bottom: 10px;
+    /* Space for the border */
+    
+    border-bottom: 1px solid #dee2e6;
+    /* Light line under the header */
+}
+
+.section-header h3 {
+    /* The "Experience 1", "Education 1" text */
+    
+    font-size: 1.1rem;
+    
+    color: #495057;
+    /* Dark gray color */
+    
+    font-weight: 600;
+    /* Semi-bold */
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================
+   
+   All the clickable buttons in the form.
+   Different types have different colors to indicate their purpose.
+*/
+
+.btn {
+    /* Base button styles (all buttons) */
+    
+    padding: 12px 24px;
+    /* Space inside: top/bottom 12px, left/right 24px */
+    
+    border: none;
+    /* No border */
+    
+    border-radius: 5px;
+    /* Rounded corners */
+    
+    font-size: 1rem;
+    
+    font-weight: 600;
+    /* Semi-bold text */
+    
+    cursor: pointer;
+    /* Shows hand cursor on hover */
+    
+    transition: all 0.3s ease;
+    /* Smooth animation for hover effects */
+    
+    text-transform: uppercase;
+    /* ALL CAPS */
+    
+    letter-spacing: 0.5px;
+    /* Small space between letters */
+}
+
+.btn-primary {
+    /* Main action button (Generate Resume) - GREEN */
+    
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    /* Green gradient */
+    
+    color: white;
+    /* White text */
+    
+    flex: 2;
+    /* Takes up 2/4 of the space (wider than other buttons) */
+}
+
+.btn-primary:hover {
+    /* When mouse hovers over primary button */
+    
+    transform: translateY(-2px);
+    /* Moves up slightly (2 pixels) */
+    
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+    /* Green glow shadow */
+}
+
+.btn-secondary {
+    /* Secondary button (Preview) - GRAY */
+    
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+    /* Gray gradient */
+    
+    color: white;
+    
+    flex: 1;
+    /* Takes up 1/4 of the space (narrower) */
+}
+
+.btn-secondary:hover {
+    /* Hover effect for secondary button */
+    
+    transform: translateY(-2px);
+    
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+    /* Gray glow shadow */
+}
+
+.btn-danger {
+    /* Danger/destructive button (Clear Form) - RED */
+    
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    /* Red gradient */
+    
+    color: white;
+    
+    flex: 1;
+}
+
+.btn-danger:hover {
+    /* Hover effect for danger button */
+    
+    transform: translateY(-2px);
+    
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+    /* Red glow shadow */
+}
+
+.add-btn {
+    /* The "Add Another Experience/Education" buttons */
+    
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    /* Teal/cyan gradient */
+    
+    color: white;
+    
+    padding: 10px 20px;
+    
+    border: none;
+    
+    border-radius: 5px;
+    
+    font-size: 0.95rem;
+    
+    font-weight: 600;
+    
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+    
+    width: 100%;
+    /* Full width of container */
+    
+    margin-top: 10px;
+    /* Space above the button */
+}
+
+.add-btn:hover {
+    /* Hover effect for add button */
+    
+    transform: translateY(-2px);
+    
+    box-shadow: 0 5px 15px rgba(23, 162, 184, 0.4);
+    /* Teal glow shadow */
+}
+
+.remove-btn {
+    /* Small red "Remove" button on each entry */
+    
+    background: #dc3545;
+    /* Red background */
+    
+    color: white;
+    
+    padding: 6px 12px;
+    /* Smaller padding than main buttons */
+    
+    border: none;
+    
+    border-radius: 4px;
+    
+    font-size: 0.85rem;
+    /* Smaller text */
+    
+    cursor: pointer;
+    
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    /* Hover effect for remove button */
+    
+    background: #c82333;
+    /* Darker red */
+    
+    transform: scale(1.05);
+    /* Grows slightly (5% larger) */
+}
+
+/* ============================================================
+   FORM ACTIONS (BUTTON CONTAINER)
+   ============================================================
+   
+   The row of buttons at the bottom of the form.
+*/
+
+.form-actions {
+    /* Container for the three main buttons */
+    
+    display: flex;
+    /* Arranges buttons in a row */
+    
+    gap: 15px;
+    /* Space between buttons */
+    
+    margin-top: 30px;
+    /* Space above the button row */
+    
+    padding-top: 25px;
+    /* Space inside at the top */
+    
+    border-top: 2px solid #ecf0f1;
+    /* Light line above the buttons */
+}
+
+/* ============================================================
+   PLACEHOLDER TEXT
+   ============================================================
+   
+   The gray example text that appears in empty fields.
+*/
+
+::placeholder {
+    /* Pseudo-element that styles placeholder text */
+    
+    color: #adb5bd;
+    /* Light gray color */
+    
+    font-style: italic;
+    /* Italic text */
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (MOBILE)
+   ============================================================
+   
+   These styles only apply on smaller screens (phones, tablets).
+   The @media rule checks the screen width and applies styles if condition is met.
+*/
+
+@media (max-width: 768px) {
+    /* "At media width 768px or smaller" */
+    /* 768px is a common breakpoint for tablets and phones */
+    
+    body {
+        padding: 10px;
+        /* Less padding on small screens */
+    }
+
+    .form-header {
+        padding: 30px 20px 20px;
+        /* Smaller padding */
+    }
+
+    .form-header h1 {
+        font-size: 1.8rem;
+        /* Smaller title on mobile */
+    }
+
+    .resume-form {
+        padding: 20px;
+        /* Less padding inside form */
+    }
+
+    .form-row {
+        flex-direction: column;
+        /* Stack items vertically instead of horizontally */
+        
+        gap: 0;
+        /* No gap when stacked */
+    }
+
+    .form-group {
+        min-width: 100%;
+        /* Full width when stacked */
+    }
+
+    .form-actions {
+        flex-direction: column;
+        /* Stack buttons vertically */
+    }
+
+    .btn {
+        width: 100%;
+        /* Full width buttons on mobile */
+    }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================
+   
+   Smooth animations for when new entries are added.
+*/
+
+@keyframes slideIn {
+    /* Defines an animation named "slideIn" */
+    
+    from {
+        opacity: 0;
+        /* Start invisible */
+        
+        transform: translateY(-10px);
+        /* Start 10px higher */
+    }
+    
+    to {
+        opacity: 1;
+        /* End fully visible */
+        
+        transform: translateY(0);
+        /* End at normal position */
+    }
+}
+
+.experience-item,
+.education-item {
+    /* Apply the animation to new entries */
+    
+    animation: slideIn 0.3s ease-out;
+    /* Play slideIn animation over 0.3 seconds */
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================
+   
+   Styles for keyboard navigation and screen readers.
+*/
+
+:focus-visible {
+    /* Shows focus outline only when using keyboard navigation */
+    
+    outline: 3px solid #3498db;
+    /* Blue outline */
+    
+    outline-offset: 2px;
+    /* Small gap between element and outline */
+}
+
+/* ============================================================
+   SCROLLBAR STYLING
+   ============================================================
+   
+   Custom scrollbar colors (works in Chrome, Edge, Safari).
+*/
+
+::-webkit-scrollbar {
+    /* The scrollbar itself */
+    
+    width: 10px;
+    /* Width of vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    /* The track the scrollbar moves in */
+    
+    background: #f1f1f1;
+    /* Light gray background */
+}
+
+::-webkit-scrollbar-thumb {
+    /* The draggable part of the scrollbar */
+    
+    background: #888;
+    /* Medium gray */
+    
+    border-radius: 5px;
+    /* Rounded */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /* When hovering over scrollbar */
+    
+    background: #555;
+    /* Darker gray */
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================
+   
+   Special styles for when the page is printed or saved as PDF.
+   We hide buttons and remove decorative elements for a clean print.
+*/
+
+@media print {
+    /* These styles only apply when printing */
+    
+    body {
+        background: white;
+        /* White background for printing */
+        
+        padding: 0;
+        /* No padding */
+    }
+
+    .resume-form-container {
+        box-shadow: none;
+        /* No shadow when printing */
+        
+        border-radius: 0;
+        /* No rounded corners */
+    }
+
+    .form-actions,
+    .add-btn,
+    .remove-btn {
+        display: none !important;
+        /* Hide all buttons when printing */
+        /* !important overrides other rules */
+    }
+}
+
+/* ============================================================
+   PHOTO UPLOAD STYLING
+   ============================================================
+   
+   Styles for the profile photo upload and preview functionality.
+   This section handles the file input, preview area, and visual feedback.
+*/
+
+/* File input styling */
+input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+input[type="file"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    background-color: white;
+}
+
+/* Helper text below file input */
+.input-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Photo preview container */
+.photo-preview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.photo-preview {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.photo-preview:hover {
+    border-color: #3498db;
+    background-color: #e3f2fd;
+}
+
+.photo-placeholder {
+    text-align: center;
+    color: #6c757d;
+    opacity: 0.7;
+}
+
+.photo-placeholder svg {
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+
+.photo-placeholder span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+#previewImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+}
+
+.remove-photo-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.remove-photo-btn:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+}
+
+/* Responsive adjustments for photo upload */
+@media (max-width: 768px) {
+    .photo-preview {
+        height: 150px;
+    }
+    
+    .photo-preview-container {
+        order: -1;
+    }
+}
+
+/* 
+ * ============================================================
+ * CSS SUMMARY
+ * ============================================================
+ * 
+ * This CSS file creates a professional, modern form design:
+ * 
+ * 1. COLORS: Uses a professional palette
+ *    - Primary: Blues (#3498db, #2c3e50)
+ *    - Accent: Red (#e74c3c) for visual interest
+ *    - Success: Green (#28a745) for main action
+ *    - Neutral: Grays for text and borders
+ * 
+ * 2. LAYOUT: Uses Flexbox for responsive columns
+ *    - Two columns on desktop
+ *    - Single column on mobile
+ * 
+ * 3. TYPOGRAPHY: Clear hierarchy
+ *    - Large bold titles
+ *    - Medium section headers
+ *    - Readable body text
+ * 
+ * 4. INTERACTION: Smooth animations
+ *    - Hover effects on buttons
+ *    - Focus states for inputs
+ *    - Slide-in animation for new entries
+ * 
+ * 5. RESPONSIVE: Works on all devices
+ *    - Desktop: Full two-column layout
+ *    - Mobile: Single column, stacked
+ * 
+ * 6. PRINT: Clean output
+ *    - Hides interactive elements
+ *    - Removes decorative shadows
+ * 
+ * 7. PHOTO UPLOAD: Custom styling for file input and preview
+ *    - Dashed border preview area
+ *    - Placeholder icon when no photo
+ *    - Hover effects for better UX
+ *    - Mobile-optimized sizing
+ */

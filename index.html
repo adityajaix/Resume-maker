@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!-- 
+    ============================================================
+    RESUME BUILDER - HTML FILE
+    ============================================================
+    
+    This is the main structure file for our resume builder form.
+    Think of HTML (HyperText Markup Language) as the skeleton or
+    framework of a building - it defines what elements exist and
+    how they're organized.
+    
+    What this file does:
+    - Creates a form where users can enter their resume information
+    - Organizes the form into logical sections (Personal Info, Experience, etc.)
+    - Defines what type of information each field should collect
+    
+    Key concepts:
+    - Tags: HTML uses tags like <div>, <input>, <label> to define elements
+    - Attributes: Additional information added to tags (like id, class, type)
+    - Nesting: Elements can contain other elements (like a box inside a box)
+-->
+
+<html lang="en">
+<!-- The <html> tag wraps everything and tells the browser this is an HTML document -->
+<!-- lang="en" means the content is in English (helps with accessibility and SEO) -->
+
+<head>
+    <!-- The <head> section contains metadata about the page (not visible to users) -->
+    
+    <meta charset="UTF-8">
+    <!-- Sets the character encoding to UTF-8, which supports all languages and special characters -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the page responsive on mobile devices by adjusting to screen width -->
+    
+    <title>Resume Builder Form</title>
+    <!-- This text appears in the browser tab/title bar -->
+    
+    <link rel="stylesheet" href="styles.css">
+    <!-- Connects this HTML file to our CSS file (styles.css) for styling -->
+    <!-- Think of it as linking a paint job to our skeleton -->
+</head>
+
+<body>
+    <!-- The <body> section contains everything users will see on the page -->
+    
+    <!-- Main Container: Wraps everything like a picture frame -->
+    <div class="resume-form-container">
+        
+        <!-- Header Section: The title area at the top -->
+        <header class="form-header">
+            <!-- <header> is a semantic tag meaning "this is introductory content" -->
+            
+            <h1>Professional Resume Builder</h1>
+            <!-- <h1> is the main heading (largest heading level) -->
+            <!-- We only use one <h1> per page for SEO and accessibility -->
+            
+            <p>Fill out the form below to create your professional resume</p>
+            <!-- <p> is a paragraph tag for regular text -->
+        </header>
+
+        <!-- Main Form: Where users input their information -->
+        <form id="resumeForm" class="resume-form">
+            <!-- <form> creates an interactive area for user input -->
+            <!-- id="resumeForm" gives this form a unique name so JavaScript can find it -->
+            <!-- class="resume-form" allows us to style all forms with this class -->
+
+            <!-- ======================================== -->
+            <!-- SECTION 1: PERSONAL INFORMATION -->
+            <!-- ======================================== -->
+            <section class="form-section">
+                <!-- <section> groups related content together -->
+                <!-- class="form-section" applies consistent styling to each section -->
+                
+                <h2>Personal Information</h2>
+                <!-- <h2> is a subheading (smaller than <h1>) -->
+                
+                <!-- Row 1: Full Name and Email -->
+                <div class="form-row">
+                    <!-- <div> is a generic container (like a box) -->
+                    <!-- class="form-row" arranges form fields in a row -->
+                    
+                    <div class="form-group">
+                        <!-- class="form-group" wraps a label and its input together -->
+                        
+                        <label for="fullName">Full Name *</label>
+                        <!-- <label> describes what the input is for -->
+                        <!-- for="fullName" connects this label to the input with id="fullName" -->
+                        <!-- The asterisk (*) indicates this field is required -->
+                        
+                        <input type="text" id="fullName" name="fullName" required>
+                        <!-- <input> creates a text box for user input -->
+                        <!-- type="text" means it accepts any text -->
+                        <!-- id="fullName" uniquely identifies this input -->
+                        <!-- name="fullName" is used when submitting the form -->
+                        <!-- required means the user must fill this out -->
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        
+                        <input type="email" id="email" name="email" required>
+                        <!-- type="email" validates that the input is in email format -->
+                        <!-- The browser will check for an @ symbol and proper format -->
+                    </div>
+                </div>
+
+                <!-- Row 2: Phone and LinkedIn -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        
+                        <input type="tel" id="phone" name="phone">
+                        <!-- type="tel" is for telephone numbers -->
+                        <!-- On mobile, this might bring up a number pad keyboard -->
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn Profile</label>
+                        
+                        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourname">
+                        <!-- type="url" validates that it's a proper web address -->
+                        <!-- placeholder shows example text that disappears when typing -->
+                    </div>
+                </div>
+
+                <!-- Row 3: Address (full width) -->
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <!-- class="full-width" makes this field span the entire row -->
+                        
+                        <label for="address">Address</label>
+                        
+                        <textarea id="address" name="address" rows="2"></textarea>
+                        <!-- <textarea> is for multi-line text input -->
+                        <!-- rows="2" sets the initial height to 2 lines -->
+                    </div>
+                </div>
+
+                <!-- Row 4: Profession and Website -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profession">Professional Title</label>
+                        
+                        <input type="text" id="profession" name="profession" placeholder="e.g., Software Developer, Marketing Manager">
+                        <!-- placeholder gives users an example of what to enter -->
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website">Personal Website/Portfolio</label>
+                        
+                        <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+                    </div>
+                </div>
+
+                <!-- Row 5: Photo Upload -->
+                
+                    <!-- past photo code from snipets -->
+                
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SECTION 2: PROFESSIONAL SUMMARY -->
+            <!-- ======================================== -->
+            <section class="form-section">
+                <h2>Professional Summary</h2>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="summary">Professional Summary *</label>
+                        
+                        <textarea id="summary" name="summary" rows="4" required placeholder="Write a brief summary of your professional background, key skills, and career objectives..."></textarea>
+                        <!-- This is a required field where users describe their career highlights -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SECTION 3: WORK EXPERIENCE -->
+            <!-- ======================================== -->
+            <section class="form-section">
+                <h2>Work Experience</h2>
+                
+                <!-- Container for experience entries (can add multiple) -->
+                <div id="experienceContainer">
+                    <!-- This div holds all experience items -->
+                    <!-- JavaScript will add/remove items here dynamically -->
+                    
+                    <!-- First Experience Entry (default) -->
+                    <div class="experience-item" data-index="0">
+                        <!-- class="experience-item" styles each experience block -->
+                        <!-- data-index="0" tracks which number entry this is (0 = first) -->
+                        
+                        <div class="section-header">
+                            <h3>Experience 1</h3>
+                            <!-- <h3> is a smaller subheading for the entry title -->
+                            
+                            <button type="button" class="remove-btn" onclick="removeExperience(0)">Remove</button>
+                            <!-- This button removes the experience entry -->
+                            <!-- type="button" means it doesn't submit the form -->
+                            <!-- onclick="removeExperience(0)" calls JavaScript to remove this entry -->
+                        </div>
+
+                        <!-- Company Name and Job Title -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Company Name *</label>
+                                <input type="text" name="company[]" required>
+                                <!-- name="company[]" uses [] to allow multiple values -->
+                                <!-- When form submits, all company names are collected -->
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Job Title *</label>
+                                <input type="text" name="jobTitle[]" required>
+                            </div>
+                        </div>
+
+                        <!-- Dates -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Start Date *</label>
+                                <input type="month" name="startDate[]" required>
+                                <!-- type="month" provides a month/year picker -->
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input type="month" name="endDate[]">
+                                
+                                <label class="checkbox-label">
+                                    <!-- Custom styled checkbox -->
+                                    <input type="checkbox" name="currentJob[]" value="1"> 
+                                    I currently work here
+                                    <!-- When checked, this indicates the job is current -->
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Job Description -->
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label>Job Description</label>
+                                <textarea name="jobDescription[]" rows="3" placeholder="Describe your responsibilities and achievements in this role..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button to add more experience entries -->
+                <button type="button" class="add-btn" onclick="addExperience()">+ Add Another Experience</button>
+                <!-- onclick="addExperience()" calls JavaScript to create a new entry -->
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SECTION 4: EDUCATION -->
+            <!-- ======================================== -->
+            <section class="form-section">
+                <h2>Education</h2>
+                
+                <!-- Container for education entries (similar to experience) -->
+                <div id="educationContainer">
+                    <div class="education-item" data-index="0">
+                        <div class="section-header">
+                            <h3>Education 1</h3>
+                            <button type="button" class="remove-btn" onclick="removeEducation(0)">Remove</button>
+                        </div>
+
+                        <!-- School and Degree -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>School/University *</label>
+                                <input type="text" name="school[]" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Degree/Certification *</label>
+                                <input type="text" name="degree[]" required>
+                            </div>
+                        </div>
+
+                        <!-- Field of Study and Graduation Date -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Field of Study</label>
+                                <input type="text" name="fieldOfStudy[]">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Graduation Date</label>
+                                <input type="month" name="graduationDate[]">
+                            </div>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label>Additional Information</label>
+                                <textarea name="educationInfo[]" rows="2" placeholder="GPA, honors, relevant coursework, etc."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button to add more education entries -->
+                <button type="button" class="add-btn" onclick="addEducation()">+ Add Another Education</button>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SECTION 5: SKILLS -->
+            <!-- ======================================== -->
+            <section class="form-section">
+                <h2>Skills</h2>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label>Skills</label>
+                        <textarea id="skills" name="skills" rows="4" placeholder="List your key skills separated by commas (e.g., JavaScript, Project Management, Communication)"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SECTION 6: ADDITIONAL INFORMATION -->
+            <!-- ======================================== -->
+            <section class="form-section">
+                <h2>Additional Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="languages">Languages</label>
+                        <input type="text" id="languages" name="languages" placeholder="English, Hindi, etc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="certifications">Certifications</label>
+                        <input type="text" id="certifications" name="certifications" placeholder="Certification names separated by commas">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="achievements">Achievements & Awards</label>
+                        <textarea id="achievements" name="achievements" rows="3" placeholder="List any notable achievements, awards, or recognitions..."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- FORM ACTION BUTTONS -->
+            <!-- ======================================== -->
+            <div class="form-actions">
+                <!-- Container for the buttons at the bottom of the form -->
+                
+                <button type="button" class="btn btn-secondary" onclick="previewResume()">Preview Resume</button>
+                <!-- Preview button - shows what the resume will look like -->
+                
+                <button type="submit" class="btn btn-primary">Generate Resume</button>
+                <!-- type="submit" means this button submits the form data -->
+                <!-- This is the main action button (primary styling) -->
+                
+                <button type="reset" class="btn btn-danger">Clear Form</button>
+                <!-- type="reset" clears all form fields back to default -->
+                <!-- Danger styling (red) because it deletes data -->
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript File: Adds interactivity and functionality -->
+    <script src="script.js"></script>
+    <!-- This loads our JavaScript file which handles: -->
+    <!-- - Adding/removing experience and education entries -->
+    <!-- - Form validation -->
+    <!-- - Collecting and processing form data -->
+</body>
+</html>
+
+<!-- 
+    ============================================================
+    HTML STRUCTURE SUMMARY
+    ============================================================
+    
+    The page structure is like a nested set of boxes:
+    
+    <html>
+        ├── <head> (metadata, links to CSS)
+        └── <body> (visible content)
+            └── <div class="resume-form-container"> (main wrapper)
+                ├── <header> (title area)
+                └── <form> (the actual form)
+                    ├── <section> Personal Information
+                    ├── <section> Professional Summary
+                    ├── <section> Work Experience
+                    ├── <section> Education
+                    ├── <section> Skills
+                    ├── <section> Additional Information
+                    └── <div> Form Action Buttons
+    
+    Key HTML Concepts Used:
+    1. Semantic Tags: <header>, <section>, <form> - describe what content is
+    2. Form Elements: <input>, <textarea>, <label> - for user input
+    3. Classes & IDs: For styling (classes) and JavaScript access (IDs)
+    4. Attributes: Provide additional information (type, name, required, etc.)
+-->
